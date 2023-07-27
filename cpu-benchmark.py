@@ -2,6 +2,7 @@ import datetime
 import platform
 import math
 import subprocess
+import os
 from multiprocessing import Pool, cpu_count
 from statistics import mean
 from functools import reduce
@@ -25,7 +26,7 @@ if __name__ == "__main__":
   print('Arch: {}'.format(platform_information))
   print('OS: {}'.format(os_version))
   jobs = []
-  pool = Pool(cpu_count())
+  pool = Pool(cpu_count(), initializer=os.nice, initargs=(-10,))
   start = datetime.datetime.now()
   for pi_compute in range(500):
       job = pool.apply_async(multi_process_test)

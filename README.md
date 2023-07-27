@@ -2,5 +2,5 @@
 Simple multi-core benchmarking for python
 
 ```
-python3 cpu-benchmark.py
+sudo python3 cpu-benchmark.py
 ```

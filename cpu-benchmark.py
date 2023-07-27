@@ -13,7 +13,6 @@ def multi_process_test():
       math.sqrt(value)
     end = datetime.datetime.now()
     duration = (end - start).total_seconds() * 1000
-    print("Single Async Core Speed: {} ms".format(duration))
     return duration
 
 if __name__ == "__main__":
@@ -26,7 +25,7 @@ if __name__ == "__main__":
   jobs = []
   pool = Pool(cpu_count())
   start = datetime.datetime.now()
-  for pi_compute in range(1000):
+  for pi_compute in range(500):
       job = pool.apply_async(multi_process_test)
       jobs.append(job)
 
@@ -36,4 +35,4 @@ if __name__ == "__main__":
   end = datetime.datetime.now()
   duration = (end - start).total_seconds() * 1000
   print("Duration {} ms or {} seconds".format(duration, duration / 1000),)
-  print("Average of all CPUs {}".format(mean(final_times_per_process)))
+  print("Average of all CPUs {} ms".format(mean(final_times_per_process)))

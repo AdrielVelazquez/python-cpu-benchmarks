@@ -1,6 +1,7 @@
 import datetime
 import platform
 import math
+import subprocess
 from multiprocessing import Pool, cpu_count
 from statistics import mean
 from functools import reduce
@@ -19,6 +20,7 @@ if __name__ == "__main__":
   os_version = platform.system()
   cpu_information = platform.processor()
   platform_information = platform.platform()
+  # processor_name = subprocess.run("grep -m 1 'model name' /proc/cpuinfo")
   print('CPU: {}'.format(cpu_information))
   print('Arch: {}'.format(platform_information))
   print('OS: {}'.format(os_version))

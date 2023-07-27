@@ -36,4 +36,4 @@ if __name__ == "__main__":
   end = datetime.datetime.now()
   duration = (end - start).total_seconds() * 1000
   print("Duration {} ms or {} seconds".format(duration, duration / 1000),)
-  print("Average of all CPUs {}".format(mean(final_times_per_process))
+  print("Average of all CPUs {}".format(mean(final_times_per_process)))
